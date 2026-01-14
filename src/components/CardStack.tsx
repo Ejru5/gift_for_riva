@@ -155,7 +155,7 @@ const Card = ({ data, isTop, onRemove, index }: { data: CardData; isTop: boolean
     return (
         <motion.div
             layout
-            className={`absolute w-64 h-96 bg-white border-[3px] border-black rounded-lg shadow-neo overflow-hidden cursor-grab active:cursor-grabbing ${isTop ? 'pointer-events-auto' : ''}`}
+            className={`absolute w-56 h-96 bg-white border-[3px] border-black rounded-lg shadow-neo overflow-hidden cursor-grab active:cursor-grabbing ${isTop ? 'pointer-events-auto' : ''}`}
             style={{
                 x: isTop ? x : 0,
                 y: isTop ? y : 0,
@@ -182,13 +182,13 @@ const Card = ({ data, isTop, onRemove, index }: { data: CardData; isTop: boolean
         >
             {/* Card Content based on Type */}
             {data.type === 'OMG' && (
-                <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
-                    <div className="w-full flex flex-col -space-y-1 mb-8">
-                        <span className="font-bold text-xl self-start ml-2 transform -rotate-2 bg-gray-300 px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10">From strangers</span>
-                        <span className="font-bold text-xl self-center transform rotate-1 bg-yellow-100 px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">To friends</span>
-                        <span className="font-bold text-xl self-end mr-2 transform -rotate-2 bg-yellow-300 px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-30">To fiancés 💍</span>
+                <div className="w-full h-full flex flex-col items-center justify-center p-5 text-center">
+                    <div className="w-full flex flex-col -space-y-1 mb-6">
+                        <span className="font-bold text-base self-start ml-1 transform -rotate-2 bg-gray-300 px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10">From strangers</span>
+                        <span className="font-bold text-base self-center transform rotate-1 bg-yellow-100 px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">To friends</span>
+                        <span className="font-bold text-base self-end mr-1 transform -rotate-2 bg-yellow-300 px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-30">To fiancés 💍</span>
                     </div>
-                    <p className="font-serif text-lg italic leading-relaxed text-gray-800 border-t-2 border-black/10 pt-4">
+                    <p className="font-serif text-base italic leading-relaxed text-gray-800 border-t-2 border-black/10 pt-4">
                         "Today, we celebrate
                         not just your engagement,
                         but every little moment
