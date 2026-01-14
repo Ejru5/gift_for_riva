@@ -40,9 +40,9 @@ const SealedPackage = () => {
     return (
         <div className="relative w-full h-full flex items-center justify-center">
 
-            {/* 3D Box Container */}
+            {/* 3D Box Container - Mobile optimized */}
             <motion.div
-                className="relative w-full h-[600px] z-10 transition-transform duration-500"
+                className="relative w-full h-[85dvh] max-h-[600px] z-10 transition-transform duration-500"
                 initial={false}
                 animate={
                     showCardsOnly
