@@ -38,11 +38,11 @@ const SealedPackage = () => {
     };
 
     return (
-        <div className="relative w-full h-full flex items-center justify-center px-2 sm:px-0">
+        <div className="relative w-full h-full flex items-center justify-center">
 
-            {/* 3D Box Container - Responsive height */}
+            {/* 3D Box Container */}
             <motion.div
-                className="relative w-full h-[75vh] sm:h-[80vh] max-h-[600px] z-10 transition-transform duration-500"
+                className="relative w-full h-[600px] z-10 transition-transform duration-500"
                 initial={false}
                 animate={
                     showCardsOnly
@@ -118,15 +118,15 @@ const SealedPackage = () => {
                         <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
                         {/* Sticker 1: Top Left - FRAGILE */}
-                        <div className="absolute top-4 sm:top-8 left-3 sm:left-6 border-2 sm:border-4 border-red-600 p-1 sm:p-2 transform -rotate-12 bg-[#cbb498] shadow-sm">
-                            <div className="border border-red-600 p-0.5 sm:p-1">
-                                <span className="font-black text-red-600 text-sm sm:text-xl tracking-widest block">FRAGILE</span>
+                        <div className="absolute top-8 left-6 border-4 border-red-600 p-2 transform -rotate-12 bg-[#cbb498] shadow-sm">
+                            <div className="border border-red-600 p-1">
+                                <span className="font-black text-red-600 text-xl tracking-widest block">FRAGILE</span>
                             </div>
                             <span className="absolute -top-2 -left-2 w-full h-full bg-red-600/10 pointer-events-none"></span>
                         </div>
 
                         {/* Original Priority Mail Label */}
-                        <div className="absolute top-2 sm:top-4 right-2 sm:right-4 border sm:border-2 border-black p-1 sm:p-2 font-mono text-[10px] sm:text-xs font-bold rotate-6 opacity-70 bg-white/50 backdrop-blur-sm">
+                        <div className="absolute top-4 right-4 border-2 border-black p-2 font-mono text-xs font-bold rotate-6 opacity-70 bg-white/50 backdrop-blur-sm">
                             PRIORITY MAIL
                         </div>
                     </motion.div>
@@ -141,18 +141,18 @@ const SealedPackage = () => {
                         <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
                         {/* Sticker 2: Bottom Right - AIR MAIL */}
-                        <div className="absolute bottom-6 sm:bottom-12 right-3 sm:right-6 bg-blue-600 p-0.5 sm:p-1 transform rotate-3 shadow-md">
-                            <div className="border sm:border-2 border-dashed border-white p-1 sm:p-2 flex items-center gap-1 sm:gap-2">
-                                <div className="w-2 h-2 sm:w-4 sm:h-4 rounded-full bg-white animate-pulse"></div>
-                                <span className="font-black text-white text-xs sm:text-lg tracking-widest">AIR MAIL</span>
+                        <div className="absolute bottom-12 right-6 bg-blue-600 p-1 transform rotate-3 shadow-md">
+                            <div className="border-2 border-dashed border-white p-2 flex items-center gap-2">
+                                <div className="w-4 h-4 rounded-full bg-white animate-pulse"></div>
+                                <span className="font-black text-white text-lg tracking-widest">AIR MAIL</span>
                             </div>
                         </div>
 
                         {/* Sticker 3: Middle Left - DO NOT BEND/BARCODE */}
-                        <div className="absolute top-6 sm:top-10 left-3 sm:left-8 bg-white p-1 sm:p-2 transform -rotate-6 shadow-sm border border-black max-w-[80px] sm:max-w-[120px]">
-                            <div className="h-5 sm:h-8 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Barcode_39.svg/1200px-Barcode_39.svg.png')] bg-cover mb-1 opacity-80"></div>
-                            <span className="font-mono text-[8px] sm:text-[10px] font-bold block text-center leading-none">DO NOT BEND</span>
-                            <span className="font-mono text-[6px] sm:text-[8px] block text-center text-gray-500">EXP-2026-X</span>
+                        <div className="absolute top-10 left-8 bg-white p-2 transform -rotate-6 shadow-sm border border-black max-w-[120px]">
+                            <div className="h-8 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Barcode_39.svg/1200px-Barcode_39.svg.png')] bg-cover mb-1 opacity-80"></div>
+                            <span className="font-mono text-[10px] font-bold block text-center leading-none">DO NOT BEND</span>
+                            <span className="font-mono text-[8px] block text-center text-gray-500">EXP-2026-X</span>
                         </div>
 
                     </motion.div>
@@ -161,7 +161,7 @@ const SealedPackage = () => {
                     {/* Only visible if not open */}
                     {!isOpen && (
                         <motion.div
-                            className="absolute top-1/2 left-0 w-full h-12 sm:h-16 -mt-6 sm:-mt-8 z-30 flex items-center justify-end pr-3 sm:pr-6"
+                            className="absolute top-1/2 left-0 w-full h-16 -mt-8 z-30 flex items-center justify-end pr-6"
                             style={{ opacity }}
                         >
                             {/* Packing Tape Effect */}
@@ -173,15 +173,15 @@ const SealedPackage = () => {
                             <div className="absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-black/60 -mt-[1px] z-10"></div>
 
                             {/* Text follows Arrow */}
-                            <span className="mr-2 sm:mr-5 font-mono text-[10px] sm:text-xs font-black text-black/50 pointer-events-none select-none tracking-widest relative z-20 whitespace-nowrap bg-[#cbb498] px-1 sm:px-2 outline-dotted outline-1 outline-[#cbb498]">
+                            <span className="mr-5 font-mono text-xs font-black text-black/50 pointer-events-none select-none tracking-widest relative z-20 whitespace-nowrap bg-[#cbb498] px-2 outline-dotted outline-1 outline-[#cbb498]">
                                 TEAR HERE
                             </span>
 
                             {/* Pull Tab - Right Aligned */}
                             <motion.div
-                                className="relative z-40 w-10 h-10 sm:w-12 sm:h-12 bg-primary-pink rounded-full border-2 border-black flex items-center justify-center cursor-grab active:cursor-grabbing shadow-sm"
+                                className="relative z-40 w-12 h-12 bg-primary-pink rounded-full border-2 border-black flex items-center justify-center cursor-grab active:cursor-grabbing shadow-sm"
                                 drag="x"
-                                dragConstraints={{ left: -250, right: 0 }} // Constrain to width (Drag Left)
+                                dragConstraints={{ left: -280, right: 0 }} // Constrain to width (Drag Left)
                                 dragElastic={0.1}
                                 dragMomentum={false}
                                 onDrag={(_, info) => {
