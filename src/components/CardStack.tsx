@@ -4,14 +4,18 @@ import confetti from 'canvas-confetti';
 
 interface CardData {
     id: number;
-    type: 'OMG' | 'MEMORY' | 'ADVICE' | 'LOCKED_GIFT';
+    type: 'OMG' | 'MEMORY' | 'LETTER' | 'MESSAGE_1' | 'MESSAGE_2' | 'MESSAGE_3' | 'ADVICE' | 'LOCKED_GIFT';
     rotation: number;
 }
 
 const CardStack = ({ isInteractive }: { isInteractive: boolean }) => {
     const [cards, setCards] = useState<CardData[]>([
-        { id: 4, type: 'LOCKED_GIFT', rotation: -2 },
-        { id: 3, type: 'ADVICE', rotation: 3 },
+        { id: 8, type: 'LOCKED_GIFT', rotation: -2 },
+        { id: 7, type: 'ADVICE', rotation: 3 },
+        { id: 6, type: 'MESSAGE_3', rotation: -1 }, // Sirish
+        { id: 5, type: 'MESSAGE_2', rotation: 2 },  // Hinal
+        { id: 4, type: 'MESSAGE_1', rotation: -2 }, // Dhruv & Dhruvi
+        { id: 3, type: 'LETTER', rotation: 1 },
         { id: 2, type: 'MEMORY', rotation: -1 },
         { id: 1, type: 'OMG', rotation: 2 }, // Top card
     ]);
@@ -220,6 +224,158 @@ const Card = ({ data, isTop, onRemove, index }: { data: CardData; isTop: boolean
 
                     {/* Polaroid Texture */}
                     <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-20"></div>
+                </div>
+            )}
+
+            {data.type === 'LETTER' && (
+                <div
+                    className="w-full h-full flex flex-col py-4 px-5 relative overflow-hidden"
+                    style={{
+                        background: 'linear-gradient(135deg, #fdf8f3 0%, #f5ebe0 50%, #faf6f1 100%)',
+                        backgroundImage: `
+                            linear-gradient(135deg, #fdf8f3 0%, #f5ebe0 50%, #faf6f1 100%),
+                            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")
+                        `,
+                    }}
+                >
+                    {/* Paper texture lines */}
+                    <div
+                        className="absolute inset-0 pointer-events-none opacity-[0.15]"
+                        style={{
+                            backgroundImage: 'repeating-linear-gradient(transparent, transparent 20px, #c9b99a 21px)',
+                        }}
+                    ></div>
+
+                    {/* Faded edge effect */}
+                    <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_30px_rgba(139,119,101,0.15)]"></div>
+
+                    {/* Letter content */}
+                    <div className="relative z-10 flex flex-col justify-center h-full">
+                        <p className="font-handwriting text-[13px] leading-[1.6] text-gray-800 tracking-wide">
+                            <span className="text-[15px] font-semibold">To the couple we've known since our college days,</span>
+                            <br />
+                            We still remember those innocent faces Vasu used to make every time we teased him about Riddhi.
+                            <br />
+                            You both tried so hard to pass it off as "just friendship"…
+                            <br />
+                            <span className="italic">But honestly?</span>
+                            <br />
+                            The glow, the smiles, and that unspoken connection made everything so obvious, and so adorable.
+                            <br />
+                            Watching this story grow from then to now makes this moment even more special.
+                        </p>
+
+                        {/* Decorative heart */}
+                        <div className="absolute bottom-0 right-0 text-xl opacity-40 transform rotate-12">❤️</div>
+                    </div>
+
+                    {/* Corner fold effect */}
+                    <div
+                        className="absolute bottom-0 right-0 w-6 h-6"
+                        style={{
+                            background: 'linear-gradient(135deg, transparent 50%, #e8ddd0 50%)',
+                            boxShadow: '-2px -2px 3px rgba(0,0,0,0.05)',
+                        }}
+                    ></div>
+                </div>
+            )}
+
+            {/* Message Card - Dhruv & Dhruvi */}
+            {data.type === 'MESSAGE_1' && (
+                <div
+                    className="w-full h-full flex flex-col py-4 px-5 relative overflow-hidden"
+                    style={{
+                        background: 'linear-gradient(135deg, #fff8f0 0%, #ffecd9 50%, #fff5eb 100%)',
+                    }}
+                >
+                    {/* Paper texture */}
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.12]"
+                        style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 20px, #d4a574 21px)' }}
+                    ></div>
+                    <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_25px_rgba(180,140,100,0.12)]"></div>
+
+                    <div className="relative z-10 flex flex-col justify-center h-full">
+                        {/* From label */}
+                        <div className="mb-3">
+                            <span className="bg-orange-400 text-white font-bold text-xs px-2 py-1 rounded-sm shadow-sm">
+                                Dhruv & Dhruvi
+                            </span>
+                        </div>
+                        <p className="font-handwriting text-[12px] leading-[1.55] text-gray-800 tracking-wide">
+                            We've known each other for the past 3–4 years, and honestly, we feel incredibly lucky to have found a bond that feels truly lifetime.
+                            <br /><br />
+                            You're not just friends to us — you're family.
+                            <br /><br />
+                            We often dream about the day when our kids will be friends too, creating memories just like we do today.
+                        </p>
+                        <div className="absolute bottom-1 right-2 text-lg opacity-30">💕</div>
+                    </div>
+                </div>
+            )}
+
+            {/* Message Card - Hinal */}
+            {data.type === 'MESSAGE_2' && (
+                <div
+                    className="w-full h-full flex flex-col py-4 px-5 relative overflow-hidden"
+                    style={{
+                        background: 'linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 50%, #f5faff 100%)',
+                    }}
+                >
+                    {/* Paper texture */}
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.12]"
+                        style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 20px, #7a9fc9 21px)' }}
+                    ></div>
+                    <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_25px_rgba(100,140,180,0.12)]"></div>
+
+                    <div className="relative z-10 flex flex-col justify-center h-full">
+                        {/* From label */}
+                        <div className="mb-3">
+                            <span className="bg-blue-400 text-white font-bold text-xs px-2 py-1 rounded-sm shadow-sm">
+                                Hinal
+                            </span>
+                        </div>
+                        <p className="font-handwriting text-[11px] leading-[1.5] text-gray-800 tracking-wide">
+                            Finally, this day has arrived, and we are beyond happy for you both.
+                            <br /><br />
+                            I've been close to Vasu since our tuition days and to Riddhi since our master's, so I've known them both separately and together. Honestly, I can't imagine two people more perfect for each other than you guys.
+                            <br /><br />
+                            Even though I didn't get much time to spend with you both, the bond we share is so special that it feels like we never lost touch.
+                        </p>
+                        <div className="absolute bottom-1 right-2 text-lg opacity-30">💙</div>
+                    </div>
+                </div>
+            )}
+
+            {/* Message Card - Sirish */}
+            {data.type === 'MESSAGE_3' && (
+                <div
+                    className="w-full h-full flex flex-col py-4 px-5 relative overflow-hidden"
+                    style={{
+                        background: 'linear-gradient(135deg, #f5fff0 0%, #e8ffe0 50%, #f2fff5 100%)',
+                    }}
+                >
+                    {/* Paper texture */}
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.12]"
+                        style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 20px, #7ac974 21px)' }}
+                    ></div>
+                    <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_25px_rgba(100,180,100,0.12)]"></div>
+
+                    <div className="relative z-10 flex flex-col justify-center h-full">
+                        {/* From label */}
+                        <div className="mb-3">
+                            <span className="bg-green-500 text-white font-bold text-xs px-2 py-1 rounded-sm shadow-sm">
+                                Sirish
+                            </span>
+                        </div>
+                        <p className="font-handwriting text-[11px] leading-[1.5] text-gray-800 tracking-wide">
+                            A special thanks to Riddhi for always being there and helping me plan every little surprise for Hinal.
+                            <br /><br />
+                            Nowadays Vasu only calls me for birthday wishes but hopefully we'll do better this year.
+                            <br /><br />
+                            Wishing you both a lifetime filled with love, laughter, understanding, and countless beautiful memories together. May this new journey be even more amazing than you ever imagined.
+                        </p>
+                        <div className="absolute bottom-1 right-2 text-lg opacity-30">💚</div>
+                    </div>
                 </div>
             )}
 
