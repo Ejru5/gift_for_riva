@@ -118,7 +118,7 @@ const SealedPackage = () => {
                         <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
                         {/* Sticker 1: Top Left - Outfit Image */}
-                        <div className="absolute top-8 left-6">
+                        <div className="absolute top-4 left-6">
                             <img
                                 src="/outfit.png"
                                 alt="Outfit sticker"
