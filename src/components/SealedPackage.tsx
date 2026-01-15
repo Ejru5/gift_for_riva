@@ -148,11 +148,13 @@ const SealedPackage = () => {
                             </div>
                         </div>
 
-                        {/* Sticker 3: Middle Left - DO NOT BEND/BARCODE */}
-                        <div className="absolute top-10 left-8 bg-white p-2 transform -rotate-6 shadow-sm border border-black max-w-[120px]">
-                            <div className="h-8 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Barcode_39.svg/1200px-Barcode_39.svg.png')] bg-cover mb-1 opacity-80"></div>
-                            <span className="font-mono text-[10px] font-bold block text-center leading-none">DO NOT BEND</span>
-                            <span className="font-mono text-[8px] block text-center text-gray-500">EXP-2026-X</span>
+                        {/* Sticker 3: Outfit Image */}
+                        <div className="absolute top-6 left-6 transform -rotate-6">
+                            <img
+                                src="/outfit.png"
+                                alt="Outfit sticker"
+                                className="w-32 h-auto object-contain"
+                            />
                         </div>
 
                     </motion.div>
@@ -165,7 +167,7 @@ const SealedPackage = () => {
                             style={{ opacity }}
                         >
                             {/* Packing Tape Effect */}
-                            <div className="absolute inset-x-0 h-12 bg-white/10 backdrop-blur-[1px] border-y border-white/20 shadow-inner transform -rotate-1 origin-left pointer-events-none">
+                            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-12 bg-white/10 backdrop-blur-[1px] border-y border-white/20 shadow-inner pointer-events-none">
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50"></div>
                             </div>
 

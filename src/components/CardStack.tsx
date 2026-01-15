@@ -4,17 +4,18 @@ import confetti from 'canvas-confetti';
 
 interface CardData {
     id: number;
-    type: 'OMG' | 'MEMORY' | 'LETTER' | 'MESSAGE_1' | 'MESSAGE_2' | 'MESSAGE_3' | 'ADVICE' | 'LOCKED_GIFT';
+    type: 'OMG' | 'MEMORY' | 'LETTER' | 'MESSAGE_1' | 'MESSAGE_2' | 'MESSAGE_3' | 'MESSAGE_4' | 'ADVICE' | 'LOCKED_GIFT';
     rotation: number;
 }
 
 const CardStack = ({ isInteractive }: { isInteractive: boolean }) => {
     const [cards, setCards] = useState<CardData[]>([
-        { id: 8, type: 'LOCKED_GIFT', rotation: -2 },
-        { id: 7, type: 'ADVICE', rotation: 3 },
-        { id: 6, type: 'MESSAGE_3', rotation: -1 }, // Sirish
-        { id: 5, type: 'MESSAGE_2', rotation: 2 },  // Hinal
-        { id: 4, type: 'MESSAGE_1', rotation: -2 }, // Dhruv & Dhruvi
+        { id: 9, type: 'LOCKED_GIFT', rotation: -2 },
+        { id: 8, type: 'ADVICE', rotation: 3 },
+        { id: 7, type: 'MESSAGE_3', rotation: -1 }, // Sirish
+        { id: 6, type: 'MESSAGE_2', rotation: 2 },  // Hinal
+        { id: 5, type: 'MESSAGE_4', rotation: 1 },  // Dhruv
+        { id: 4, type: 'MESSAGE_1', rotation: -2 }, // Dhruvi
         { id: 3, type: 'LETTER', rotation: 1 },
         { id: 2, type: 'MEMORY', rotation: -1 },
         { id: 1, type: 'OMG', rotation: 2 }, // Top card
@@ -120,28 +121,43 @@ const LockedGiftCard = () => {
 
             {/* Lock Overlay */}
             {!isUnlocked && (
-                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#FAF9F6]/80 backdrop-blur-md p-6">
-                    <div className="bg-white p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] w-full text-center relative overflow-hidden">
-                        <div className="text-4xl mb-4">🔒</div>
-                        <h3 className="font-black text-xl mb-4 text-black">ENTER PIN</h3>
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                            <input
-                                type="text"
-                                pattern="\d*"
-                                maxLength={4}
-                                value={input}
-                                onChange={(e) => setInput(e.target.value.replace(/\D/g, ''))}
-                                placeholder="4 DIGIT PIN"
-                                className="w-full border-2 border-black p-2 font-mono text-center text-lg placeholder:text-sm focus:outline-none focus:bg-gray-100 text-black placeholder:text-gray-400"
-                            />
-                            <button
-                                type="submit"
-                                className="bg-black text-white font-bold py-2 border-2 border-black hover:bg-gray-800 active:scale-95 transition-transform"
-                            >
-                                UNLOCK
-                            </button>
-                        </form>
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-gradient-to-br from-pink-50/95 to-white/95 backdrop-blur-sm p-4">
+                    {/* Gift icon */}
+                    <div className="mb-4">
+                        <div className="w-16 h-16 bg-pink-500 rounded-2xl flex items-center justify-center shadow-lg transform -rotate-3">
+                            <span className="text-3xl">🎁</span>
+                        </div>
                     </div>
+
+                    {/* Title */}
+                    <h3 className="font-handwriting text-2xl font-bold text-gray-800 mb-1">A Special Gift</h3>
+                    <p className="text-xs text-gray-500 mb-4">Enter PIN to unlock</p>
+
+                    {/* PIN Input */}
+                    <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3">
+                        <input
+                            type="text"
+                            inputMode="numeric"
+                            pattern="\d*"
+                            maxLength={4}
+                            value={input}
+                            onChange={(e) => setInput(e.target.value.replace(/\D/g, ''))}
+                            placeholder="• • • •"
+                            className="w-full border-2 border-pink-300 rounded-xl p-3 font-mono text-center text-2xl tracking-[0.5em] placeholder:text-pink-200 placeholder:tracking-[0.3em] focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-200 text-gray-800 bg-white"
+                        />
+
+                        {/* Hint */}
+                        <p className="text-[10px] text-gray-400 text-center italic">
+                            Hint: your special date 💕
+                        </p>
+
+                        <button
+                            type="submit"
+                            className="w-full bg-pink-500 text-white font-bold py-3 rounded-xl hover:bg-pink-600 active:scale-95 transition-all shadow-md"
+                        >
+                            Unlock Gift
+                        </button>
+                    </form>
                 </div>
             )}
         </div>
@@ -190,7 +206,7 @@ const Card = ({ data, isTop, onRemove, index }: { data: CardData; isTop: boolean
                     <div className="w-full flex flex-col -space-y-1 mb-6">
                         <span className="font-bold text-base self-start ml-1 transform -rotate-2 bg-gray-300 px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-10">From strangers</span>
                         <span className="font-bold text-base self-center transform rotate-1 bg-yellow-100 px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">To friends</span>
-                        <span className="font-bold text-base self-end mr-1 transform -rotate-2 bg-yellow-300 px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-30">To fiancés 💍</span>
+                        <span className="font-bold text-base self-center translate-x-1 transform -rotate-2 bg-yellow-300 px-2 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-30">To fiancés 💍</span>
                     </div>
                     <p className="font-serif text-base italic leading-relaxed text-gray-800 border-t-2 border-black/10 pt-4">
                         "Today, we celebrate
@@ -298,15 +314,21 @@ const Card = ({ data, isTop, onRemove, index }: { data: CardData; isTop: boolean
                         {/* From label */}
                         <div className="mb-3">
                             <span className="bg-orange-400 text-white font-bold text-xs px-2 py-1 rounded-sm shadow-sm">
-                                Dhruv & Dhruvi
+                                Dhruvi
                             </span>
                         </div>
-                        <p className="font-handwriting text-[12px] leading-[1.55] text-gray-800 tracking-wide">
+                        <p className="font-handwriting text-[11px] leading-[1.5] text-gray-800 tracking-wide">
                             We've known each other for the past 3–4 years, and honestly, we feel incredibly lucky to have found a bond that feels truly lifetime.
                             <br /><br />
                             You're not just friends to us — you're family.
                             <br /><br />
                             We often dream about the day when our kids will be friends too, creating memories just like we do today.
+                            <br /><br />
+                            So, so happy for you both.
+                            <br />
+                            Enjoy every second of this beautiful time.
+                            <br />
+                            love you guys.
                         </p>
                         <div className="absolute bottom-1 right-2 text-lg opacity-30">💕</div>
                     </div>
@@ -364,7 +386,7 @@ const Card = ({ data, isTop, onRemove, index }: { data: CardData; isTop: boolean
                         {/* From label */}
                         <div className="mb-3">
                             <span className="bg-green-500 text-white font-bold text-xs px-2 py-1 rounded-sm shadow-sm">
-                                Sirish
+                                Shirish
                             </span>
                         </div>
                         <p className="font-handwriting text-[11px] leading-[1.5] text-gray-800 tracking-wide">
@@ -372,21 +394,73 @@ const Card = ({ data, isTop, onRemove, index }: { data: CardData; isTop: boolean
                             <br /><br />
                             Nowadays Vasu only calls me for birthday wishes but hopefully we'll do better this year.
                             <br /><br />
-                            Wishing you both a lifetime filled with love, laughter, understanding, and countless beautiful memories together. May this new journey be even more amazing than you ever imagined.
+                            Congratulations both of you for starting this new journey. Wishing you both a lifetime filled with love, laughter, understanding, and countless beautiful memories together. May this new journey be even more amazing than you ever imagined.
                         </p>
                         <div className="absolute bottom-1 right-2 text-lg opacity-30">💚</div>
                     </div>
                 </div>
             )}
 
+            {/* Message Card - Dhruv */}
+            {data.type === 'MESSAGE_4' && (
+                <div
+                    className="w-full h-full flex flex-col py-4 px-5 relative overflow-hidden"
+                    style={{
+                        background: 'linear-gradient(135deg, #fff0f5 0%, #ffe4ec 50%, #fff5f8 100%)',
+                    }}
+                >
+                    {/* Paper texture */}
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.12]"
+                        style={{ backgroundImage: 'repeating-linear-gradient(transparent, transparent 20px, #c97a9f 21px)' }}
+                    ></div>
+                    <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_25px_rgba(180,100,140,0.12)]"></div>
+
+                    <div className="relative z-10 flex flex-col justify-center h-full">
+                        {/* From label */}
+                        <div className="mb-3">
+                            <span className="bg-pink-500 text-white font-bold text-xs px-2 py-1 rounded-sm shadow-sm">
+                                Dhruv
+                            </span>
+                        </div>
+                        <p className="font-handwriting text-[10px] leading-[1.45] text-gray-800 tracking-wide">
+                            I don't know how to express how happy I am that apart from me, there's someone who is starting their gruhasti. Ab maja aayega na bhidu.
+                            <br /><br />
+                            <span className="italic">Jokes apart... (clearing the voice)</span>
+                            <br />
+                            To me, you both are perfect for each other. I have seen how much you love & care for each other. Not just that, you shared that love & care to create our bond too.
+                            <br />
+                            From considering for the trip to cancelling plans just because we can't come, Khushiyo share karva thi leyne dukh ma sathe rehva sudhi, you guys are always there. So so grateful for you guys.
+                            <br /><br />
+                            Congratulations for starting this beautiful (and "adventurous") journey.
+                        </p>
+                        <div className="absolute bottom-1 right-2 text-lg opacity-30">💗</div>
+                    </div>
+                </div>
+            )}
+
             {data.type === 'ADVICE' && (
-                <div className="text-left w-full h-full p-6 flex flex-col justify-center">
-                    <span className="bg-black text-white font-mono text-xs px-1 mb-4 inline-block w-max">ADVICE #101</span>
-                    <h3 className="font-serif text-3xl font-bold leading-tight mb-4">
-                        "Rule #1:<br />
-                        <span className="text-primary-pink bg-black/5 px-1">The Wife</span> is always right."
-                    </h3>
-                    <p className="font-mono text-[10px] text-gray-500 mt-auto">Derived from ancient wisdom.</p>
+                <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-pink-50 to-white">
+                    {/* Badge */}
+                    <span className="bg-black text-white font-mono text-[10px] px-2 py-1 mb-6 uppercase tracking-widest">
+                        The One & Only Rule
+                    </span>
+
+                    {/* Main Quote */}
+                    <div className="relative">
+                        <span className="absolute -left-4 -top-2 text-5xl text-pink-200 font-serif">"</span>
+                        <h3 className="font-handwriting text-3xl font-bold text-gray-800 leading-tight px-4">
+                            <span className="text-primary-pink">Riddhi</span> is always right.
+                        </h3>
+                        <span className="absolute -right-4 bottom-0 text-5xl text-pink-200 font-serif">"</span>
+                    </div>
+
+                    {/* Decorative line */}
+                    <div className="w-16 h-1 bg-pink-300 rounded-full mt-6 mb-4"></div>
+
+                    {/* Footer */}
+                    <p className="font-mono text-[9px] text-gray-400 uppercase tracking-wider">
+                        Do you understand vasu?
+                    </p>
                 </div>
             )}
 
