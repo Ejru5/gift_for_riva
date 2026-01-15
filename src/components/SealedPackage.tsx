@@ -117,12 +117,13 @@ const SealedPackage = () => {
                     >
                         <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
-                        {/* Sticker 1: Top Left - FRAGILE */}
-                        <div className="absolute top-8 left-6 border-4 border-red-600 p-2 transform -rotate-12 bg-[#cbb498] shadow-sm">
-                            <div className="border border-red-600 p-1">
-                                <span className="font-black text-red-600 text-xl tracking-widest block">FRAGILE</span>
-                            </div>
-                            <span className="absolute -top-2 -left-2 w-full h-full bg-red-600/10 pointer-events-none"></span>
+                        {/* Sticker 1: Top Left - Outfit Image */}
+                        <div className="absolute top-8 left-6">
+                            <img
+                                src="/outfit.png"
+                                alt="Outfit sticker"
+                                className="w-32 h-auto object-contain"
+                            />
                         </div>
 
                         {/* Original Priority Mail Label */}
@@ -148,13 +149,12 @@ const SealedPackage = () => {
                             </div>
                         </div>
 
-                        {/* Sticker 3: Outfit Image */}
-                        <div className="absolute top-6 left-6 transform -rotate-6">
-                            <img
-                                src="/outfit.png"
-                                alt="Outfit sticker"
-                                className="w-32 h-auto object-contain"
-                            />
+                        {/* Sticker 3: FRAGILE */}
+                        <div className="absolute top-12 left-6 border-4 border-red-600 p-2 transform -rotate-6 bg-[#cbb498]">
+                            <div className="border border-red-600 p-1">
+                                <span className="font-black text-red-600 text-xl tracking-widest block">FRAGILE</span>
+                            </div>
+                            <span className="absolute -top-2 -left-2 w-full h-full bg-red-600/10 pointer-events-none"></span>
                         </div>
 
                     </motion.div>
