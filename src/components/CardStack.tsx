@@ -91,24 +91,24 @@ const LockedGiftCard = () => {
                 </div>
 
                 {/* Nykaa Gift Card Badge */}
-                <div className="flex items-center mb-[-14px] px-4 py-2 bg-pink-500 rounded-full shadow-sm z-30 relative -rotate-2">
-                    <span className="font-bold text-sm uppercase tracking-wider text-white">Nykaa Gift Card</span>
+                <div className="flex items-center mb-[-12px] px-3 py-1 bg-pink-500 rounded-full shadow-sm z-30 relative -rotate-2">
+                    <span className="font-bold text-xs uppercase tracking-wider text-white">Nykaa Gift Card</span>
                 </div>
 
-                <div className="w-full flex flex-col items-center justify-center gap-2 pt-6 pb-4 px-6 border-2 border-black bg-white shadow-neo-sm relative">
+                <div className="w-full flex flex-col items-center justify-center gap-2 pt-5 pb-3 px-4 border-2 border-black bg-white shadow-neo-sm relative">
                     <div className="text-center">
-                        <p className="font-mono text-xs text-gray-500 mb-1 uppercase tracking-widest">CODE</p>
-                        <p className="font-mono text-sm font-black text-black tracking-wide whitespace-nowrap">{CODE}</p>
+                        <p className="font-mono text-[10px] text-gray-500 mb-0.5 uppercase tracking-widest">CODE</p>
+                        <p className="font-mono text-xs font-black text-black tracking-wide whitespace-nowrap">{CODE}</p>
                     </div>
-                    <div className="w-12 h-[2px] bg-black/10 rounded-full"></div>
+                    <div className="w-10 h-[1px] bg-black/10 rounded-full"></div>
                     <div className="text-center">
-                        <p className="font-mono text-xs text-gray-500 mb-1 uppercase tracking-widest">PIN</p>
-                        <p className="font-mono text-sm font-black text-black tracking-wide whitespace-nowrap">{VOUCHER_PIN}</p>
+                        <p className="font-mono text-[10px] text-gray-500 mb-0.5 uppercase tracking-widest">PIN</p>
+                        <p className="font-mono text-xs font-black text-black tracking-wide whitespace-nowrap">{VOUCHER_PIN}</p>
                     </div>
-                    <div className="w-12 h-[2px] bg-black/10 rounded-full"></div>
+                    <div className="w-10 h-[1px] bg-black/10 rounded-full"></div>
                     <div className="text-center">
-                        <p className="font-mono text-xs text-gray-500 mb-1 uppercase tracking-widest">AMOUNT</p>
-                        <p className="font-mono text-sm font-black text-black tracking-wide">₹3000</p>
+                        <p className="font-mono text-[10px] text-gray-500 mb-0.5 uppercase tracking-widest">AMOUNT</p>
+                        <p className="font-mono text-xs font-black text-black tracking-wide">₹3000</p>
                     </div>
                 </div>
 
